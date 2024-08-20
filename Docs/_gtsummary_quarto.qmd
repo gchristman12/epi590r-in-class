@@ -8,6 +8,8 @@ execute:
     
 ---
 
+The NLSY79 Cohort is a longitudinal project that follows the lives of a sample of American youth born between 1957-64. The cohort originally included 12,686 respondents ages 14-22 when first interviewed in 1979; after two subsamples were dropped, 9,964 respondents remain in the eligible samples. 
+
 ```{r}
 #| message: false
 library(tidyverse)
@@ -49,4 +51,12 @@ tbl_summary(
     age_bir ~ "Age at first birth"
   ),
   missing_text = "Missing")
+```
+
+```{r}
+tbl_summary(
+  nlsy,
+  by = sex_cat,
+  include = c(sex_cat, race_eth_cat, region_cat,
+              eyesight_cat, glasses, age_bir))
 ```
